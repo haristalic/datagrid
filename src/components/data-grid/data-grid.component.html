@@ -1,7 +1,17 @@
+<div class="right-align">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="onSearchChange()"
+      placeholder="Search"
+      [style.width]="'240px'"
+      [style.padding]="'8px'"
+    />
+  </div>
 <dx-data-grid
-  [dataSource]="gridData"
+  [dataSource]="filteredGridData"
   [columnAutoWidth]="true"
-  [style]="{ 'max-height': '900px', 'overflow-y': 'auto' }"
+  class="grid"
 >
   <dxo-load-panel [enabled]="false"></dxo-load-panel>
   <dxo-scrolling mode="infinite"></dxo-scrolling>

@@ -1,9 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { DataGridComponent } from '../components/data-grid/data-grid.component';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
-import { SearchComponent } from '../components/search/search.component';
 import { DataService } from '../shared/service/data.service';
 import { GridData } from '../shared/models/data';
 
@@ -12,10 +10,8 @@ import { GridData } from '../shared/models/data';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     DataGridComponent,
     SidebarComponent,
-    SearchComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -40,11 +36,29 @@ export class AppComponent implements OnInit {
     this.dataService.getAllData().subscribe({
       next: (data: GridData[]) => {
         this.gridData = data;
-        console.log(this.gridData);
-
       },
     });
-    console.log(this.gridData);
   }
-  
+
+  public filter(searchTerm: string):void {
+    if (searchTerm.length > 2) {
+      const data = this.gridData.filter((item) => {
+        return Object.values(item).some((itemValue) => {
+          return (
+            itemValue &&
+            itemValue
+              .toString()
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase())
+          );
+        });
+      });
+      this.dataService.emitDataChange(data);
+    }
+  }
+  public filteredData(data: GridData[]):void {
+    if (data) {
+      this.gridData = data;
+    }
+  }
 }

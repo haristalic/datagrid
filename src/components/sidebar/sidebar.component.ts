@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   inject,
   Input,
   OnChanges,
+  Output,
 } from '@angular/core';
 import { DataService } from '../../shared/service/data.service';
 import { GridData } from '../../shared/models/data';
@@ -18,6 +20,8 @@ export class SidebarComponent implements OnChanges {
   @Input() visibleColumns: string[] = [];
   @Input() hiddenColumns: string[] = [];
   @Input() gridData: GridData[] = [];
+  @Output() filteredData = new EventEmitter<GridData[]>();
+
 
   private dataService: DataService = inject(DataService);
 
@@ -53,7 +57,9 @@ export class SidebarComponent implements OnChanges {
         }
       });
       return filteredObj;
-    });
+    }) as Partial<GridData>[];
     this.dataService.emitDataChange(filteredArray);
+    this.filteredData.emit(filteredArray);
   }
+  
 }

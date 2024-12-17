@@ -2,16 +2,7 @@
   <div class="sidebar-content">
     <div class="top-section">
       @for ( column of hiddenColumns; track column) {
-      <div
-        style="
-          border: 2px solid red;
-          padding: 2px;
-          overflow-y: auto;
-          color: black;
-          margin: 5px;
-        "
-        (dblclick)="toggleColumn(column)"
-      >
+      <div class="hidden" (dblclick)="toggleColumn(column)">
         {{ column }}
       </div>
       }
@@ -19,16 +10,7 @@
     <hr />
     <div class="bottom-section">
       @for ( column of visibleColumns; track column) {
-      <div
-        style="
-          border: 2px solid rgb(0, 255, 0);
-          padding: 2px;
-          overflow-y: auto;
-          color: black;
-          margin: 5px;
-        "
-        (dblclick)="toggleColumn(column)"
-      >
+      <div class="visible" (dblclick)="toggleColumn(column)">
         {{ column }}
       </div>
       }
