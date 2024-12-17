@@ -1,0 +1,14 @@
+<div class="data-search">
+    <input
+      type="text"
+      class="data-search--form-control"
+      [placeholder]="placeholder"
+      [(ngModel)]="searchValue"
+      [disabled]="inputDisabled"
+      (ngModelChange)="searchValueChange(searchValue)" />
+    @if (searchValue) {
+      <div class="data-search--clear">
+        <button (click)="clickClear()">X</button>
+      </div>
+    }
+  </div>
