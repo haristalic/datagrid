@@ -37,10 +37,10 @@ export class DataGridComponent implements OnInit {
       this.searchText = '';
     });
   }
-  onSearchChange() {
+  public onSearchChange(): void {
     this.searchSubject.next(this.searchText);
   }
-  private performSearch(searchText: string) {
+  private performSearch(searchText: string): void {
     if (searchText.length < 3) {
       this.filteredGridData = this.gridData;
       return;

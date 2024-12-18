@@ -2,26 +2,72 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Make sure you have the following installed:
 
-## Code scaffolding
+- [Node.js](https://nodejs.org/) (v16 or later recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Angular CLI](https://angular.io/cli) (v16 or later)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To check if Node.js and npm are installed, run the following commands in your terminal:
 
-## Build
+```bash
+node -v
+npm -v
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To install Angular CLI globally, use:
 
-## Running unit tests
+```bash
+npm install -g @angular/cli
+```
+## Clone the Repository
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Clone the repository using the following command:
 
-## Running end-to-end tests
+```bash
+git clone https://github.com/haristalic/datagrid.git
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Navigate to the Project Directory
 
-## Further help
+Move into the project directory:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+cd datagrid
+```
+
+## Install Dependencies
+
+Install the required npm packages:
+
+```bash
+npm install
+```
+
+## Start the Development Server
+
+Run the following command to start the Angular development server:
+
+```bash
+ng serve
+```
+
+The application will be accessible at [http://localhost:4200/](http://localhost:4200/).
+
+## Build the Application
+
+To build the application for production, use:
+
+```bash
+ng build --prod
+```
+
+The output will be generated in the `dist/` directory.
+
+## The project leverages the following key technologies:
+
+- **[DevExpress](https://js.devexpress.com/):** A suite of rich UI components used for data grids, forms, and more.
+- **[RxJS](https://rxjs.dev/):** A library for reactive programming to manage asynchronous data streams and event-driven architecture.
+
